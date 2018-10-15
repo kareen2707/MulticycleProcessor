@@ -74,11 +74,25 @@ begin
                             -- sub
                             when "001" => expected := std_logic_vector(signed(a) - signed(b));
                             -- comparator
-                            when "011" =>
+                            when "011" => 
+				expected := (others => '0');
+				case op(2 downto 0) is
+                                    when "001"   => test := signed(a) <= signed(b);
+                                    when "010"   => test := signed(a) > signed(b);
+                                    when "011"   => test := signed(a) /= signed(b);
+                                    when "100"   => test := signed(a) = signed(b);
+				    when "101"   => test := unsigned(a) <= unsigned(b);
+				    when "110"   => test := unsigned(a) > unsigned(b);
+                                    -- we don't care for the others => ignore
+                                    when others => test := false;
+                                end case;
+				
+				if (test) then
+					expected(0) := '1';
+				end if;
 ---------------------------------------MODIFY HERE-------------------------------------------------------------
-				ASSERT FALSE
-					REPORT "Replace this ASSERT with the code to test the comparator"
-                			SEVERITY ERROR;
+			
+			    
 ---------------------------------------END MODIFY--------------------------------------------------------------
                             -- "010" is not valid -> ignore
                             -- logical unit
@@ -139,3 +153,4 @@ begin
     end process;
 
 end bench;
+
