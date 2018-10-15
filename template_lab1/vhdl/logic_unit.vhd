@@ -44,6 +44,3 @@ logic_unit_process: process (op, s_a, s_b)
 	end process;
 
 r <= s_r;	
-
-
-end synth;
