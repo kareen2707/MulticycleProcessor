@@ -1,0 +1,605 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/altera_lite/16.0
+Econtroller
+Z0 w1506206042
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/Users/aerobert/project_Memories/modelsim
+Z5 8C:/Users/aerobert/project_Memories/vhdl/Controller.vhd
+Z6 FC:/Users/aerobert/project_Memories/vhdl/Controller.vhd
+l0
+L5
+VQNRdUR5N=bM4Yh<KB[Wah1
+!s100 EgmZX?@Hlj_:FT@1zk_WE3
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1539108138
+!i10b 1
+Z9 !s108 1539108138.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/vhdl/Controller.vhd|
+Z11 !s107 C:/Users/aerobert/project_Memories/vhdl/Controller.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Asynth
+R1
+R2
+R3
+DEx4 work 10 controller 0 22 QNRdUR5N=bM4Yh<KB[Wah1
+l18
+L17
+VecYGEP=ze?5Men@=jVI<T1
+!s100 ma6P5AB>OVS>VVO5E:eiU0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Edecoder
+Z14 w1539073457
+R1
+R2
+R3
+R4
+Z15 8C:\Users\aerobert\project_Memories\vhdl\decoder.vhd
+Z16 FC:\Users\aerobert\project_Memories\vhdl\decoder.vhd
+l0
+L5
+VU?AT>Z]mM@<^]6F2zNAK73
+!s100 E70XToNOKdM31o2OfPCQK3
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\aerobert\project_Memories\vhdl\decoder.vhd|
+Z18 !s107 C:\Users\aerobert\project_Memories\vhdl\decoder.vhd|
+!i113 1
+R12
+R13
+Asynth
+R1
+R2
+R3
+DEx4 work 7 decoder 0 22 U?AT>Z]mM@<^]6F2zNAK73
+l15
+L14
+VzYjPXL^FIf?HmfMjMU1I63
+!s100 <glNB;V@GCnC4Lm:0O:Ma0
+R7
+32
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Efpga4u_with_controller
+Z19 w1476220134
+R2
+R3
+R4
+Z20 8C:/Users/aerobert/project_Memories/vhdl/FPGA4U_with_controller.vhd
+Z21 FC:/Users/aerobert/project_Memories/vhdl/FPGA4U_with_controller.vhd
+l0
+L24
+V=:f=j`>OO=61_Q:WX;AeN1
+!s100 `1RbW94><6J]8CK?H<fzS3
+R7
+32
+R8
+!i10b 1
+R9
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/vhdl/FPGA4U_with_controller.vhd|
+Z23 !s107 C:/Users/aerobert/project_Memories/vhdl/FPGA4U_with_controller.vhd|
+!i113 1
+R12
+R13
+Abdf_type
+R2
+R3
+Z24 DEx4 work 22 fpga4u_with_controller 0 22 =:f=j`>OO=61_Q:WX;AeN1
+l97
+L33
+V<iXS`zZaco0^BPS_`^KnA0
+!s100 RcJMHfGX2QE:aLibWNebS2
+R7
+32
+R8
+!i10b 1
+R9
+R22
+R23
+!i113 1
+R12
+R13
+Efpga4u_without_controller
+Z25 w1476134000
+R2
+R3
+R4
+Z26 8C:\Users\aerobert\project_Memories\vhdl\FPGA4U_without_controller.vhd
+Z27 FC:\Users\aerobert\project_Memories\vhdl\FPGA4U_without_controller.vhd
+l0
+L24
+VFCoiMT1ozEjHKS<L095c@1
+!s100 69dai>]IQUYlKDS^l9;He1
+R7
+32
+R8
+!i10b 1
+R9
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\aerobert\project_Memories\vhdl\FPGA4U_without_controller.vhd|
+Z29 !s107 C:\Users\aerobert\project_Memories\vhdl\FPGA4U_without_controller.vhd|
+!i113 1
+R12
+R13
+Abdf_type
+R2
+R3
+Z30 DEx4 work 25 fpga4u_without_controller 0 22 FCoiMT1ozEjHKS<L095c@1
+l86
+L38
+V3eS^oHjd]:IN0nhaT]z9[0
+!s100 29N9S8[5?VkolAz4YIf:;2
+R7
+32
+R8
+!i10b 1
+R9
+R28
+R29
+!i113 1
+R12
+R13
+Eleds
+R25
+R1
+R2
+R3
+R4
+Z31 8C:/Users/aerobert/project_Memories/vhdl/LEDs.vhd
+Z32 FC:/Users/aerobert/project_Memories/vhdl/LEDs.vhd
+l0
+L5
+V82^IRfHNag^>;Yc>Z[nm>3
+!s100 LBhnQz<diU;5h1EbFfFEW1
+R7
+32
+R8
+!i10b 1
+R9
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/vhdl/LEDs.vhd|
+Z34 !s107 C:/Users/aerobert/project_Memories/vhdl/LEDs.vhd|
+!i113 1
+R12
+R13
+Asynth
+R1
+R2
+R3
+DEx4 work 4 leds 0 22 82^IRfHNag^>;Yc>Z[nm>3
+l34
+L22
+Vj;cD^kSPz:JHjlD@L]j;81
+!s100 ^Eb^?kG1CKeS`DJCfdSl82
+R7
+32
+R8
+!i10b 1
+R9
+R33
+R34
+!i113 1
+R12
+R13
+Ppack
+Z35 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z36 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R2
+R3
+Z37 w1476133968
+R4
+Z38 8C:/Users/aerobert/project_Memories/vhdl/rgb_led96.vhd
+Z39 FC:/Users/aerobert/project_Memories/vhdl/rgb_led96.vhd
+l0
+L12
+VSgkf7C>zV<_V6E^@jUKD^3
+!s100 FB]U9M?hE8E5iehJ9[AWh3
+R7
+32
+b1
+Z40 !s110 1539108139
+!i10b 1
+Z41 !s108 1539108139.000000
+Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/vhdl/rgb_led96.vhd|
+Z43 !s107 C:/Users/aerobert/project_Memories/vhdl/rgb_led96.vhd|
+!i113 1
+R12
+R13
+Bbody
+Z44 DPx4 work 4 pack 0 22 Sgkf7C>zV<_V6E^@jUKD^3
+R35
+R36
+R2
+R3
+l0
+L17
+VQ[i6CQaWYOi37nk]<RCBH3
+!s100 8]CiCz8GM]b_8`cfK=T:`2
+R7
+32
+R40
+!i10b 1
+R41
+R42
+R43
+!i113 1
+R12
+R13
+Eram
+Z45 w1539107474
+R1
+R2
+R3
+R4
+Z46 8C:/Users/aerobert/project_Memories/vhdl/RAM.vhd
+Z47 FC:/Users/aerobert/project_Memories/vhdl/RAM.vhd
+l0
+L5
+VJiWAmLGUWmdVPB8L2QZ[D3
+!s100 9O>00CFElD4PLMkihiTWm3
+R7
+32
+R40
+!i10b 1
+R41
+Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/vhdl/RAM.vhd|
+Z49 !s107 C:/Users/aerobert/project_Memories/vhdl/RAM.vhd|
+!i113 1
+R12
+R13
+Asynth
+R1
+R2
+R3
+DEx4 work 3 ram 0 22 JiWAmLGUWmdVPB8L2QZ[D3
+l22
+L16
+VF;8Yzl@lO:dkRMOL0kjPl3
+!s100 c470gl1Jhf6Nd??^QNMd70
+R7
+32
+R40
+!i10b 1
+R41
+R48
+R49
+!i113 1
+R12
+R13
+Eregister_file
+Z50 w1539099849
+R1
+R2
+R3
+R4
+Z51 8C:/Users/aerobert/project_Memories/vhdl/register_file.vhd
+Z52 FC:/Users/aerobert/project_Memories/vhdl/register_file.vhd
+l0
+L5
+VhQYRZ<6ijZW2:hk46k4IZ2
+!s100 _;mToXbZzY:WVO^oMIJ;J3
+R7
+32
+R40
+!i10b 1
+R41
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/vhdl/register_file.vhd|
+Z54 !s107 C:/Users/aerobert/project_Memories/vhdl/register_file.vhd|
+!i113 1
+R12
+R13
+Asynth
+R1
+R2
+R3
+DEx4 work 13 register_file 0 22 hQYRZ<6ijZW2:hk46k4IZ2
+l24
+L18
+VY9J8YoFT4OcJ3dSS07OXP1
+!s100 WojcG^NOAHASna9QVZzXb1
+R7
+32
+R40
+!i10b 1
+R41
+R53
+R54
+!i113 1
+R12
+R13
+Ergb_led96
+R37
+R44
+R36
+R35
+R2
+R3
+R4
+R38
+R39
+l0
+L46
+VDn00^;b6BmV8c[7[]6<CU2
+!s100 X:YKB@hW0<LC:6C595LeJ0
+R7
+32
+R40
+!i10b 1
+R41
+R42
+R43
+!i113 1
+R12
+R13
+Aarch
+R44
+R36
+R35
+R2
+R3
+DEx4 work 9 rgb_led96 0 22 Dn00^;b6BmV8c[7[]6<CU2
+l144
+L80
+VVMLEXCQSI_@JdCBGa]SIz1
+!s100 g<aGZ1bIK0AWZCQOUK`ba3
+R7
+32
+R40
+!i10b 1
+R41
+R42
+R43
+!i113 1
+R12
+R13
+Erom
+Z55 w1539108134
+R2
+R3
+R4
+Z56 8C:\Users\aerobert\project_Memories\vhdl\ROM.vhd
+Z57 FC:\Users\aerobert\project_Memories\vhdl\ROM.vhd
+l0
+L4
+VLD>LKJh0<<KfR_G::f?6B1
+!s100 LzhnA0@bLeKPHkcXf<L3g3
+R7
+32
+R40
+!i10b 1
+R41
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\aerobert\project_Memories\vhdl\ROM.vhd|
+Z59 !s107 C:\Users\aerobert\project_Memories\vhdl\ROM.vhd|
+!i113 1
+R12
+R13
+Asynth
+R2
+R3
+DEx4 work 3 rom 0 22 LD>LKJh0<<KfR_G::f?6B1
+l26
+L14
+VZV]`bl;YT[Zb?3=_;UY7g1
+!s100 ]Qg7kd[z[WPWdbH@KzG9m3
+R7
+32
+R40
+!i10b 1
+R41
+R58
+R59
+!i113 1
+R12
+R13
+Asyn
+DPx9 altera_mf 20 altera_mf_components 0 22 7RjT1Xb9^`L[coRHZN<9k2
+R2
+R3
+DEx4 work 3 rom 0 22 Q`OLTNGT_NeI>T<P`o4XR3
+l56
+L52
+V7J_6IFg]6JWnUm1fm_cZ03
+!s100 84K=JWV]X>ed9Bh>@>M@F0
+R7
+32
+!s110 1539102444
+!i10b 1
+!s108 1539102444.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/vhdl/ROM.vhd|
+!s107 C:/Users/aerobert/project_Memories/vhdl/ROM.vhd|
+!i113 1
+R12
+R13
+FC:/Users/aerobert/project_Memories/vhdl/ROM.vhd
+w1539075008
+8C:/Users/aerobert/project_Memories/vhdl/ROM.vhd
+Erom_block
+Z60 w1476134002
+R2
+R3
+R4
+Z61 8C:\Users\aerobert\project_Memories\vhdl\ROM_Block.vhd
+Z62 FC:\Users\aerobert\project_Memories\vhdl\ROM_Block.vhd
+l0
+L42
+VCf[gZ]hQBZigaT1P:e9O01
+!s100 Fb1^C3b1G3KcM]0dFoPHV2
+R7
+32
+R8
+!i10b 1
+R9
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\aerobert\project_Memories\vhdl\ROM_Block.vhd|
+Z64 !s107 C:\Users\aerobert\project_Memories\vhdl\ROM_Block.vhd|
+!i113 1
+R12
+R13
+Asyn
+R2
+R3
+DEx4 work 9 rom_block 0 22 Cf[gZ]hQBZigaT1P:e9O01
+l82
+L52
+VZKBR7P0EaE;PJMf_Ho4411
+!s100 2O9W8o5<`cI7Pb0TBCEoL0
+R7
+32
+R8
+!i10b 1
+R9
+R63
+R64
+!i113 1
+R12
+R13
+Etb_controller
+R0
+R2
+R3
+R4
+Z65 8C:/Users/aerobert/project_Memories/testbench/tb_controller.vhd
+Z66 FC:/Users/aerobert/project_Memories/testbench/tb_controller.vhd
+l0
+L4
+ViJgDF5RR:zbcJ5A_GfFbF0
+!s100 28F?L_OHdPH3gH3B4nzCd1
+R7
+32
+R40
+!i10b 1
+R41
+Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/testbench/tb_controller.vhd|
+Z68 !s107 C:/Users/aerobert/project_Memories/testbench/tb_controller.vhd|
+!i113 1
+R12
+R13
+Atestbench
+R24
+R2
+R3
+DEx4 work 13 tb_controller 0 22 iJgDF5RR:zbcJ5A_GfFbF0
+l13
+L7
+VPWiaV45Yf6[PVmi`KT2@T0
+!s100 WiZQfKkS[Zco`@HUXT1io0
+R7
+32
+R40
+!i10b 1
+R41
+R67
+R68
+!i113 1
+R12
+R13
+Etb_memories
+Z69 w1476133982
+R1
+R2
+R3
+R4
+Z70 8C:\Users\aerobert\project_Memories\testbench\tb_memories.vhd
+Z71 FC:\Users\aerobert\project_Memories\testbench\tb_memories.vhd
+l0
+L5
+V_[B`<1i^G3X9j`zn<9dcS1
+!s100 >eaMjaQUiFi7T3R9cd3^`0
+R7
+32
+R40
+!i10b 1
+R41
+Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\aerobert\project_Memories\testbench\tb_memories.vhd|
+Z73 !s107 C:\Users\aerobert\project_Memories\testbench\tb_memories.vhd|
+!i113 1
+R12
+R13
+Atestbench
+R30
+R1
+R2
+R3
+Z74 DEx4 work 11 tb_memories 0 22 _[B`<1i^G3X9j`zn<9dcS1
+l19
+L8
+Z75 VHU:`e0JJVh96^59cS[6]<1
+Z76 !s100 Qec@BZNh5SP611?l>lh_T3
+R7
+32
+R40
+!i10b 1
+R41
+R72
+R73
+!i113 1
+R12
+R13
+Etb_register_file
+Z77 w1539099451
+R1
+R2
+R3
+R4
+Z78 8C:/Users/aerobert/project_Memories/testbench/tb_register_file.vhd
+Z79 FC:/Users/aerobert/project_Memories/testbench/tb_register_file.vhd
+l0
+L5
+V9dGOXn>gC30@lMD0]CZ;O3
+!s100 1`;gKjLez8z?IanM[D4a_3
+R7
+32
+R40
+!i10b 1
+R41
+Z80 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/aerobert/project_Memories/testbench/tb_register_file.vhd|
+Z81 !s107 C:/Users/aerobert/project_Memories/testbench/tb_register_file.vhd|
+!i113 1
+R12
+R13
+Abench
+R1
+R2
+R3
+DEx4 work 16 tb_register_file 0 22 9dGOXn>gC30@lMD0]CZ;O3
+l28
+L8
+VBCz`>H<^gH4bjPnP?CmJS3
+!s100 O_nj]>JWOD]kDAgUzPSY40
+R7
+32
+R40
+!i10b 1
+R41
+R80
+R81
+!i113 1
+R12
+R13
