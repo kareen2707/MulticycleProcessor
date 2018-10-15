@@ -25,7 +25,7 @@ signal s_xor: std_logic_vector(31 downto 0);
 signal s_zero: std_logic;
 signal s_r: std_logic_vector(31 downto 0);
 signal s_r_aux: std_logic_vector(32 downto 0);
---signal s_one: 
+signal s_one: std_logic_vector(31 downto 0); 
 
 begin
 
@@ -34,25 +34,15 @@ s_b <= b;
 r <= s_r;
 carry <= s_carry;
 zero <= s_zero;
+s_sub_mode <= sub_mode;
 
-add_sub_process: process (sub_mode, s_a, s_b)
-	begin
-		if sub_mode = '1' then
-			s_xor <= s_b XOR (31 downto 0 => '1');
-			s_b_final <= s_xor + ((30 downto 0 => '0') & '1');
-		else 
-			s_b_final <= s_b;
-		end if;
-				
-		s_r_aux <= ("0" & s_a) + ("0" & s_b_final);
-		s_carry <= s_r_aux(32);
-		s_r <= s_r_aux(31 downto 0);
 
-		if s_r_aux(31 downto 0) = (31 downto 0 => '0') then
-			s_zero <= '1';
-		else
-			s_zero <= '0';	
-		end if;
-end process;
+s_b_final <= s_b WHEN s_sub_mode = '0' ELSE not(s_b);
+
+s_r_aux <= std_logic_vector(unsigned('0' & s_a) + unsigned('0' & s_b_final)) WHEN s_sub_mode = '0'
+		ELSE std_logic_vector(unsigned('0' & s_a) + unsigned('0' & s_b_final) + 1);
+s_r <= s_r_aux(31 DOWNTO 0);
+s_carry <= s_r_aux(32);
+s_zero <= '1' WHEN (unsigned(s_r) = 0) ELSE '0'; 
 
 end synth;
