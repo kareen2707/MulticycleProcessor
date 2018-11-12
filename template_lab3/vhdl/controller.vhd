@@ -1,0 +1,321 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity controller is
+    port(
+        clk        : in  std_logic;
+        reset_n    : in  std_logic;
+        -- instruction opcode
+        op         : in  std_logic_vector(5 downto 0);
+        opx        : in  std_logic_vector(5 downto 0);
+        -- activates branch condition
+        branch_op  : out std_logic;
+        -- immediate value sign extention
+        imm_signed : out std_logic;
+        -- instruction register enable
+        ir_en      : out std_logic;
+        -- PC control signals
+        pc_add_imm : out std_logic;
+        pc_en      : out std_logic;
+        pc_sel_a   : out std_logic;
+        pc_sel_imm : out std_logic;
+        -- register file enable
+        rf_wren    : out std_logic;
+        -- multiplexers selections
+        sel_addr   : out std_logic;
+        sel_b      : out std_logic;
+        sel_mem    : out std_logic;
+        sel_pc     : out std_logic;
+        sel_ra     : out std_logic;
+        sel_rC     : out std_logic;
+        -- write memory output
+        read       : out std_logic;
+        write      : out std_logic;
+        -- alu op
+        op_alu     : out std_logic_vector(5 downto 0)
+    );
+end controller;
+
+architecture synth of controller is
+type state_type is (fetch1, fetch2, decode, r_op, store, break, load1, load2, i_op, branch, call, callr, jmp, jmpi, ui_op, ri_op);
+signal state, next_state: state_type;
+
+begin
+
+state_process: process (clk, reset_n)
+begin
+	if (reset_n='0') then
+		state <= fetch1;
+	elsif (rising_edge(clk)) then
+		state <= next_state;
+	end if;
+
+end process;
+
+comb_process: process (state, op, opx) 
+begin
+	next_state <= state;
+	case state is
+		when fetch1 =>
+			read <= '1';
+			branch_op <= '0';
+		        -- immediate value sign extention
+		        imm_signed <= '0';
+		        -- instruction register enable
+		        ir_en    <= '0';  
+		        -- PC control signals
+		        pc_add_imm <= '0';
+		        pc_en      <= '0';
+		        pc_sel_a   <= '0';
+		        pc_sel_imm <= '0';
+		        -- register file enable
+		        rf_wren    <= '0';
+		        -- multiplexers selections
+		        sel_addr   <= '0';
+		        sel_b      <= '0';
+		        sel_mem    <= '0';
+		        sel_pc     <= '0';
+		        sel_ra     <= '0';
+		        sel_rC    <= '0';
+		        -- write memory output
+
+		        write     <= '0'; 
+			
+			next_state <= fetch2;
+		when fetch2 =>	
+			read <= '0';
+			pc_en <= '1';
+			ir_en <= '1';
+			next_state <= decode;			
+		when decode =>
+			pc_en <= '0';
+			ir_en <= '0';
+			case op is
+				when "11"&X"A" => 
+					case opx is 
+						when "01"&X"D" => next_state <= callr; --CALLR
+						when "00"&X"5" => next_state <= jmp; --RET
+						when "00"&X"D" => next_state <= jmp; 
+						when "11"&X"4" => next_state <= break;
+
+						-- R_OP
+						when "11"&X"1" => next_state <= r_op; --add
+						when "11"&X"9" => next_state <= r_op; --sub
+						when "00"&X"8" => next_state <= r_op; --cmple
+						when "01"&X"0" => next_state <= r_op; --cmpgt
+						when "00"&X"6" => next_state <= r_op; --nor
+						when "00"&X"E" => next_state <= r_op; --and
+						when "01"&X"6" => next_state <= r_op; --or
+						when "01"&X"E" => next_state <= r_op; --xnor
+						when "01"&X"3" => next_state <= r_op; --sll
+						when "01"&X"B" => next_state <= r_op; --srl
+						when "11"&X"B" => next_state <= r_op; --sra
+
+						-- R_OP still but somehow different (kinda)
+						when "01"&X"8" => next_state <= r_op; --cmpne
+						when "10"&X"0" => next_state <= r_op; --cmpeq
+						when "10"&X"8" => next_state <= r_op; --cmpleu
+						when "11"&X"0" => next_state <= r_op; --cmpgtu
+						when "00"&X"3" => next_state <= r_op; --rol
+						when "00"&X"B" => next_state <= r_op; --ror
+						
+						-- RI_OP
+						when "01"&X"2" => next_state <= ri_op; --slli
+						when "01"&X"A" => next_state <= ri_op; --srli
+						when "11"&X"A" => next_state <= ri_op; --srai
+						when "00"&X"2" => next_state <= ri_op; --roli
+						
+						when others => next_state <= fetch1;
+					end case;
+				
+				when "00"&X"1" => next_state <= jmpi;	
+				when "01"&X"7" => next_state <= load1;
+				when "01"&X"5" => next_state <= store;
+
+				--I_OP 
+				when "00"&X"4" => next_state <= i_op;
+				when "00"&X"8" => next_state <= i_op;
+				when "01"&X"0" => next_state <= i_op;
+				when "01"&X"8" => next_state <= i_op;
+				when "10"&X"0" => next_state <= i_op;
+
+				--UI_OP
+				when "00"&X"C" => next_state <= ui_op;
+				when "01"&X"4" => next_state <= ui_op;
+				when "01"&X"C" => next_state <= ui_op;
+				when "10"&X"8" => next_state <= ui_op;
+				when "11"&X"0" => next_state <= ui_op;
+
+				-- BRANCH
+	
+				when "00"&X"6" => next_state <= branch;
+				when "00"&X"E" => next_state <= branch;
+				when "01"&X"6" => next_state <= branch;
+				when "01"&X"E" => next_state <= branch;
+				when "10"&X"6" => next_state <= branch;
+				when "10"&X"E" => next_state <= branch;
+				when "11"&X"6" => next_state <= branch;
+
+				--CALL
+				when "00"&X"0" => next_state <= call;
+
+				when others => next_state <= fetch1; --In the future we've to change this
+
+			end case;
+		when r_op =>
+			pc_en <='0';
+			ir_en <='0';
+			rf_wren <= '1';
+			sel_b <= '1';
+			sel_rC <= '1';
+			next_state <= fetch1;
+		when store =>
+			pc_en <='0';
+			ir_en <='0';
+			sel_addr <= '1';
+			sel_b <='0';
+			write <= '1';
+			imm_signed <= '1';
+			next_state <= fetch1;
+		when load1 =>	
+			pc_en <='0';
+			ir_en <='0';		
+			sel_addr <= '1';
+			sel_rC <= '1';
+			read <= '1';
+			imm_signed <= '1';
+			next_state <= load2;
+		when load2 =>
+			read <= '0';
+			sel_addr <= '0';
+			sel_rC <= '0';
+			imm_signed <= '0';
+			rf_wren <='1';
+			sel_mem <= '1';
+			next_state <= fetch1;
+
+		when i_op =>
+			rf_wren <='1';
+			pc_en <='0';
+			imm_signed <='1';
+			next_state <= fetch1;
+
+		when ui_op =>
+			rf_wren <='1';
+			pc_en <='0';
+			imm_signed <='0';
+			next_state <= fetch1;
+
+		when break =>
+			next_state <= break;
+		
+		when branch=>
+			pc_add_imm <= '1';
+			sel_b <='1';
+			branch_op <= '1';
+			next_state <= fetch1;
+
+		when call => -- Maybe add ser-rC signal
+			rf_wren <= '1';
+			pc_en <='1';
+			pc_sel_imm <='1';
+			sel_pc <='1';
+			sel_ra <='1';
+			next_state <= fetch1;
+
+		when callr =>
+			rf_wren <= '1';
+			pc_en <='1';
+			sel_pc <='1';
+			sel_ra <='1';
+			pc_sel_a <= '1';
+			next_state <= fetch1;
+
+		when jmp =>
+			pc_en <='1';
+			pc_sel_a <='1';
+			next_state <=fetch1;
+
+		when jmpi =>
+			pc_en <= '1';
+			pc_sel_imm <= '1';
+			next_state <= fetch1;
+
+		when ri_op =>
+			pc_en <='0';
+			ir_en <='0';
+			rf_wren <= '1';
+			sel_b <= '0';
+			sel_rC <= '1';
+			next_state <= fetch1;
+
+		when others =>
+			next_state <= state;
+	end case;
+end process;
+
+
+ALU_process: process (op, opx)
+begin
+	case op is 
+		when "11"&X"A" =>
+			case opx is 
+				when "11"&X"1" => op_alu <= "000000"; --add
+				when "11"&X"9" => op_alu <= "001000"; --sub
+				when "00"&X"8" => op_alu <= "011001"; --cmple signed
+				when "01"&X"0" => op_alu <= "011010"; --cmpgt
+				when "00"&X"6" => op_alu <= "100000"; --nor
+				when "00"&X"E" => op_alu <= "100001"; --and
+				when "01"&X"6" => op_alu <= "100010"; --or
+				when "01"&X"E" => op_alu <= "100011"; --xnor
+				when "01"&X"3" => op_alu <= "110010"; --sll
+				when "01"&X"B" => op_alu <= "110011"; --srl
+				when "11"&X"B" => op_alu <= "110111"; --sra
+
+				when "01"&X"8" => op_alu <= "011011"; --cmpne
+				when "10"&X"0" => op_alu <= "011100"; --cmpeq
+				when "10"&X"8" => op_alu <= "011101"; --cmpleu
+				when "11"&X"0" => op_alu <= "011110"; --cmpgtu
+				when "00"&X"3" => op_alu <= "110000"; --rol
+				when "00"&X"B" => op_alu <= "110001"; --ror
+
+				when "01"&X"2" => op_alu <= "110010"; --slli
+				when "01"&X"A" => op_alu <= "110011"; --srli
+				when "11"&X"A" => op_alu <= "110111"; --srai
+				when "00"&X"2" => op_alu <= "110000"; --roli
+
+
+				when others => --TODO;
+			end case;
+
+		when "00"&X"4" => op_alu <= "000000"; --I_OP
+
+		when "00"&X"8" => op_alu <= "011001"; --CMPLEI
+		when "01"&X"0" => op_alu <= "011010"; --CMPGTI
+		when "01"&X"8" => op_alu <= "011011"; --CMPNEI
+		when "10"&X"0" => op_alu <= "011100"; --CMPEQI
+
+		when "01"&X"7" => op_alu <= "000000";
+		when "01"&X"5" => op_alu <= "000000";
+
+		-- UI_OP
+		when "00"&X"C" => op_alu <= "100001"; --ANDI 
+		when "01"&X"4" => op_alu <= "100010"; --ORI
+		when "01"&X"C" => op_alu <= "100011"; --XNORI
+		when "10"&X"8" => op_alu <= "011101"; --CMPLEUI
+		when "11"&X"0" => op_alu <= "011110"; --CMPGTUI
+
+		----- BRANCH
+		when "00"&X"6" => op_alu <= "011100";
+		when "00"&X"E" => op_alu <= "011001";
+		when "01"&X"6" => op_alu <= "011010";
+		when "01"&X"E" => op_alu <= "011011";
+		when "10"&X"6" => op_alu <= "011100";
+		when "10"&X"E" => op_alu <= "011101";
+		when "11"&X"6" => op_alu <= "011110";
+
+		when others => --TODO
+	end case;
+end process;
+
+end synth;
